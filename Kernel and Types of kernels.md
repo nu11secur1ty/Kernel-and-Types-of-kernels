@@ -88,7 +88,7 @@ the kernel and userland that allows for implementing hotplugging and dynamic loa
 --------------------------------------------------------------------------------------------------
 
 
-Kernel Space Definition
+# Kernel Space Definition
 
 	
 
@@ -104,7 +104,7 @@ Kernel space can be accessed by user processes only through the use of system ca
 -------------------------------------------------------------------------------------------------------
 
 
-User Space Definition
+# User Space Definition
 
 	
 
