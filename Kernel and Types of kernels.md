@@ -83,3 +83,37 @@ the kernel and userland that allows for implementing hotplugging and dynamic loa
 
 
 ![image](https://github.com/nu11secur1ty/pictures/blob/master/gV8hn.png)
+
+
+--------------------------------------------------------------------------------------------------
+
+
+Kernel Space Definition
+
+	
+
+System memory in Linux can be divided into two distinct regions: kernel space and user space. Kernel space is where the kernel (i.e., the core of the operating system) executes (i.e., runs) and provides its services.
+
+Memory consists of RAM (random access memory) cells, whose contents can be accessed (i.e., read and written to) at extremely high speeds but are retained only temporarily (i.e., while in use or, at most, while the power supply remains on). Its purpose is to hold programs and data that are currently in use and thereby serve as a high speed intermediary between the CPU (central processing unit) and the much slower storage, which most commonly consists of one or more hard disk drives (HDDs).
+
+User space is that set of memory locations in which user processes (i.e., everything other than the kernel) run. A process is an executing instance of a program. One of the roles of the kernel is to manage individual user processes within this space and to prevent them from interfering with each other.
+
+Kernel space can be accessed by user processes only through the use of system calls. System calls are requests in a Unix-like operating system by an active process for a service performed by the kernel, such as input/output (I/O) or process creation. An active process is a process that is currently progressing in the CPU, as contrasted with a process that is waiting for its next turn in the CPU. I/O is any program, operation or device that transfers data to or from a CPU and to or from a peripheral device (such as disk drives, keyboards, mice and printers). 
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+User Space Definition
+
+	
+
+User space is that portion of system memory in which user processes run. This contrasts with kernel space, which is that portion of memory in which the kernel executes and provides its services.
+
+The contents of memory, which consists of dedicated RAM (random access memory) VLSI (very large scale integrated circuit) semiconductor chips, can be accessed (i.e., read and written to) at extremely high speeds but are retained only temporarily (i.e., while in use or, at most, while the power supply remains on). This contrasts with storage (e.g., disk drives), which has much slower access speeds but whose contents are retained after the power is turned off and which usually has a far greater capacity.
+
+A process is an executing (i.e., running) instance of a program. User processes are instances of all programs other than the kernel (i.e., utility and application programs). When a program is to be run, it is copied from storage into user space so that it can be accessed at high speed by the CPU (central processing unit).
+
+The kernel is a program that constitutes the central core of a computer operating system. It is not a process, but rather a controller of processes, and it has complete control over everything that occurs on the system. This includes managing individual user processes within user space and preventing them from interfering with each other.
+
+The division of system memory in Unix-like operating systems into user space and kernel space plays an important role in maintaining system stability and security. 
