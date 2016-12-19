@@ -117,3 +117,5 @@ A process is an executing (i.e., running) instance of a program. User processes 
 The kernel is a program that constitutes the central core of a computer operating system. It is not a process, but rather a controller of processes, and it has complete control over everything that occurs on the system. This includes managing individual user processes within user space and preventing them from interfering with each other.
 
 The division of system memory in Unix-like operating systems into user space and kernel space plays an important role in maintaining system stability and security. 
+
+![image](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/kernel-types-networknuts.png)
