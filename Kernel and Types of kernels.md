@@ -119,3 +119,5 @@ The kernel is a program that constitutes the central core of a computer operatin
 The division of system memory in Unix-like operating systems into user space and kernel space plays an important role in maintaining system stability and security. 
 
 ![image](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/kernel-types-networknuts.png)
+
+![# See also:](https://gist.github.com/nu11secur1ty/e7ad7ca9bd5391727c8e513250839eec)
