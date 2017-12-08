@@ -125,4 +125,4 @@ The division of system memory in Unix-like operating systems into user space and
 
 # Example
 
-![See...](http://www.nu11secur1ty.com/2017/11/firefox58-exploit-0-days.html)
+[See...](http://www.nu11secur1ty.com/2017/11/firefox58-exploit-0-days.html)
