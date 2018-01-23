@@ -224,4 +224,9 @@ Then we’re going to consider data reading from the disk. To begin with we’ll
 
 # see more [link](https://kukuruku.co/)
 
+------------------------------------------------
+
+# Source for development:
+[link](https://github.com/torvalds/linux/tree/master/fs/ext4)
+
 
