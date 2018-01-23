@@ -187,5 +187,35 @@ Skeleton Check Up
 
 The skeleton of our file system is ready. It’s time to check it. Building and loading of the file system driver doesn’t differ from building and loading of a general module. We’ll use loop device instead of a real disk for experiments. It’s a “disk” driver, which writes data not on the physical device, but to the file (disk image). Let’s create a disk image. It doesn’t store any data yet, so it’s simple:
 
+```
+touch image
+```
+
+We should also create a catalogue, which will be an assembling point (root) of our file system: 
+
+```
+mkdir dir
+```
+Now using this image we’ll assemble our file system:
+```
+sudo mount -o loop -t aufs ./image ./dir
+```
+
+
+If the operation ended successfully, we’ll see messages from our module in the system log. In order to disassemble the file system we should: 
+
+```
+sudo umount ./dir
+```
+
+Check the system log again.
+
+# Summary:
+
+We familiarized ourselves with creation of loadable kernel modules and main structures of the file subsystem. We also wrote a real file system, which can assemble and disassemble only (it’s quite silly for the time being, but we’re going to fix it in future).
+
+Then we’re going to consider data reading from the disk. To begin with we’ll define the way data will be stored on disks. We’ll also learn how to read superblock and inodes from the disk.
+
+# see more [link](https://kukuruku.co/)
 
 
