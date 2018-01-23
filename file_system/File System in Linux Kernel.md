@@ -9,8 +9,13 @@ sudo apt-get install gcc build-essential
 ```
 Then we may need the kernel source code. We’ll go the easy route and won’t bother rebuilding the kernel from the source. We’ll just determine kernel headers; this should be enough to write a loadable module. The headers can be determined the following way:
 
+Check for available linux headers:
 ```
-sudo apt-get install linux-headers-uname -r``
+apt-cache search linux-headers
+```
+Install them:
+```
+sudo apt-get install linux-headers-xx.x.x.x.x
 ```
 
 And now I’m going to jump onto my soap box. Rummaging in the kernel on a working machine isn’t the smartest idea, so I strongly recommend you perform all these actions withiin a virtual machine. We won’t do anything dangerous so the stored data is safe. But if anything goes wrong, we’ll probably have to restart the system. Besides, it’s more comfortable to debug the kernel modules in a virtual machine (such as QEMU), though this question won’t be considered in the article.
