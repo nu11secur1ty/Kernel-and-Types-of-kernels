@@ -27,7 +27,7 @@ In order to check the environment we’ll write and start the kernel module, whi
 
 ```
 #include <linux/init.h>
-  #include <linux/module.h>
+#include <linux/module.h>
 
   static int __init aufs_init(void)
   {
