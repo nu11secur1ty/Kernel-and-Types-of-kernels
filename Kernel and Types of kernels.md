@@ -28,14 +28,9 @@ Kernels may be classified mainly in two categories
 
 # 1 Monolithic Kernels
 
-Earlier in this type of kernel architecture, all the basic system services like process and memory management, 
-interrupt handling etc were packaged into a single module in kernel space. 
-This type of architecture led to some serious drawbacks like 1) Size of kernel, which was huge. 2)
-Poor maintainability, which means bug fixing or addition of new features resulted in recompilation of the whole kernel which could consume hours
+Earlier in this type of kernel architecture, all the basic system services like a process and memory management, interrupt handling etc were packaged into a single module in kernel space. This type of architecture led to some serious drawbacks like 1) The Size of the kernel, which was huge. 2) Poor maintainability, which means bug fixing or addition of new features resulted in recompilation of the whole kernel which could consume hours
 
-In a modern day approach to monolithic architecture, the kernel consists of different modules which can be dynamically loaded and un-loaded. 
-This modular approach allows easy extension of OS's capabilities. 
-With this approach, maintainability of kernel became very easy as only the concerned module needs to be loaded and unloaded every time there is a change or bug fix in a particular module. So, there is no need to bring down and recompile the whole kernel for a smallest bit of change. Also, stripping of kernel for various platforms (say for embedded devices etc) became very easy as we can easily unload the module that we do not want.
+In a modern day approach to monolithic architecture, the kernel consists of different modules which can be dynamically loaded and unloaded. This modular approach allows easy extension of OS's capabilities. With this approach, maintainability of kernel became very easy as only the concerned module needs to be loaded and unloaded every time there is a change or bug fix in a particular module. So, there is no need to bring down and recompile the whole kernel for the smallest bit of change. Also, stripping of a kernel for various platforms (say for embedded devices etc) became very easy as we can easily unload the module that we do not want.
 
 Linux follows the monolithic modular approach
 
