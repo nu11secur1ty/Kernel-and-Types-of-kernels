@@ -6,3 +6,5 @@
 # Importance_of_Linux_partitions
 [Read...](https://github.com/nu11secur1ty/Linux_Deployment_Administration_Hacks/tree/master/Importance_of_Linux_partitions)
 
+# Kernel Space, User Space Interfaces
+[Read...](https://www.nu11secur1ty.com/2019/01/kernel-space-user-space-interfaces.html)
