@@ -10,12 +10,15 @@ First find out all installed kernel version with following command:
 ```
 - Output:
 ```
-kernel-smp-2.6.9-42.EL
-kernel-smp-2.6.9-42.0.3.EL
-kernel-smp-2.6.9-42.0.8.EL
-
+kernel-smp-x.x.x-x.x.x.EL
+kernel-smp-x.x.x-x.x.x.EL
+kernel-smp-x.x.x-x.x.x.EL
+```
 I’ve total 3 different kernel installed. To remove kernel-smp-2.6.9-42.EL type command:
-# rpm -e kernel-smp-2.6.9-42.EL
-
-OR
-# rpm -vv -e kernel-smp-2.6.9-42.EL
+```
+# rpm -e kernel-smp-x.x.x-x.x.x.EL
+```
+- OR
+```
+# rpm -vv -e kernel-smp-x.x.x-x.x.x.EL
+```
