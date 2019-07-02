@@ -68,7 +68,7 @@ In addition to the top command, you can also display niceness values using the p
 
 ```bash
                     
-ian@yoga‑u15:~$  ps ‑l
+:~$  ps ‑l
 F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
 0 S  1000  3850  3849  0  80   0 ‑  6726 wait   pts/5    00:00:00 bash
 0 R  1000  4924  3850  0  80   0 ‑  3561 ‑      pts/5    00:00:00 ps
@@ -82,7 +82,7 @@ You may have guessed from Listing 1 or Listing 2 that the default niceness, at l
 - Listing 3. Checking default niceness
 
 ```bash
-ian@yoga‑u15:~$ nice
+:~$ nice
 0
 ```
 
@@ -98,11 +98,11 @@ We’ll create a small script that just uses CPU and does little else. The scrip
 - Listing 4. CPU-intensive script
 ```bash
    
-ian@yoga‑u15:~$ echo 'x="$1"'>count1.sh
-ian@yoga‑u15:~$ echo 'echo "$2" $(date)'>>count1.sh
-ian@yoga‑u15:~$ echo 'while [ $x ‑gt 0 ]; do x=$(( x‑1 ));done'>>count1.sh
-ian@yoga‑u15:~$ echo 'echo "$2" $(date)'>>count1.sh
-ian@yoga‑u15:~$ cat count1.sh
+:~$ echo 'x="$1"'>count1.sh
+:~$ echo 'echo "$2" $(date)'>>count1.sh
+:~$ echo 'while [ $x ‑gt 0 ]; do x=$(( x‑1 ));done'>>count1.sh
+:~$ echo 'echo "$2" $(date)'>>count1.sh
+:~$ cat count1.sh
 x="$1"
 echo "$2" $(date)
 while [ $x ‑gt 0 ]; do x=$(( x‑1 ));done
@@ -115,10 +115,10 @@ If you run this on your own system, you might see output similar to Listing 5. D
 
 ```bash
                     
-ian@yoga‑u15:~$ sh count1.sh 10000 A
+:~$ sh count1.sh 10000 A
 A Thu Jul 16 23:13:07 EDT 2015
 A Thu Jul 16 23:13:07 EDT 2015
-ian@yoga‑u15:~$ bash count1.sh 99000 A
+:~$ bash count1.sh 99000 A
 A Thu Jul 16 23:13:53 EDT 2015
 A Thu Jul 16 23:13:54 EDT 2015
 ```
@@ -130,7 +130,7 @@ So far, so good. Now let’s create a command list to run the script in backgrou
 - Listing 6. Running count1.sh and top
 
 ```bash
-ian@yoga‑u15:~$ (sh count1.sh 5000000 A&);top
+:~$ (sh count1.sh 5000000 A&);top
 ```
 
 - Listing 7. Using lots of CPU
@@ -170,7 +170,7 @@ To demonstrate the use of nice to set priorities, let’s start two copies of th
 
 ```bash 
                    
-ian@yoga‑u15:~$  (sh count1.sh 2000000 A&);(nice ‑n 19 sh count1.sh 2000000 B&);> sleep 1;ps ‑l;sleep 10
+:~$  (sh count1.sh 2000000 A&);(nice ‑n 19 sh count1.sh 2000000 B&);> sleep 1;ps ‑l;sleep 10
 A Fri Jul 17 17:10:33 EDT 2015
 B Fri Jul 17 17:10:33 EDT 2015
 F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
@@ -190,7 +190,7 @@ So let’s try starting four processes at four different niceness levels (0, 6, 
 
 ```bash
                    
-ian@yoga‑u15:~$ (sh count1.sh 5000000 A&);(nice ‑n 6 sh count1.sh 5000000 B&);
+:~$ (sh count1.sh 5000000 A&);(nice ‑n 6 sh count1.sh 5000000 B&);
 > (nice ‑n 12 sh count1.sh 5000000 C&);(nice ‑n 18 sh count1.sh 5000000 D&);
 > sleep 1;ps ‑l;sleep 30
 A Fri Jul 17 17:13:05 EDT 2015
@@ -222,18 +222,18 @@ If you happen to start a process and realize that it should run at a different p
 
 ```bash
                     
-ian@yoga‑u15:~$ sh count1.sh 100000000 A&
+:~$ sh count1.sh 100000000 A&
 [1] 5724
-ian@yoga‑u15:~$ A Fri Jul 17 17:30:20 EDT 2015
+:~$ A Fri Jul 17 17:30:20 EDT 2015
 renice 1 5724;ps ‑l 5724
 5724 (process ID) old priority 0, new priority 1
 F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY        TIME CMD
 0 R  1000  5724  3850 99  81   1 ‑  1118 ‑      pts/5      0:35 sh count1.sh 10000
-ian@yoga‑u15:~$ renice +3 5724;ps ‑l 5724
+:~$ renice +3 5724;ps ‑l 5724
 5724 (process ID) old priority 1, new priority 3
 F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY        TIME CMD
 0 R  1000  5724  3850 99  83   3 ‑  1118 ‑      pts/5      0:50 sh count1.sh 10000
-ian@yoga‑u15:~$ sudo renice ‑8 5724;ps ‑l 5724
+:~$ sudo renice ‑8 5724;ps ‑l 5724
 5724 (process ID) old priority 3, new priority ‑8
 F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY        TIME CMD
 0 R  1000  5724  3850 99  72  ‑8 ‑  1118 ‑      pts/5      1:01 sh count1.sh 10000
