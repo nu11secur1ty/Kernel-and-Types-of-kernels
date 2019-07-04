@@ -58,4 +58,7 @@ LibOS's provide a way for the programmer of an exokernel type system to easily p
 
 A hybrid kernel is one that combines aspects of both micro and monolithic kernels, but there is no exact definition. Often, "hybrid kernel" means that the kernel is highly modular, but all runs in the same address space. This allows the kernel avoid the overhead of a complicated message passing system within the kernel, while still retaining some microkernel-like features. 
 
+--------------------------------------------------------------------------------------------------------------------
 
+# INIT and zombie
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Linux/exit/exit.c#L652)
