@@ -61,4 +61,4 @@ A hybrid kernel is one that combines aspects of both micro and monolithic kernel
 --------------------------------------------------------------------------------------------------------------------
 
 # INIT and zombie
-![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Linux/exit/exit.c#L652)
+![github](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Linux/exit/exit.c#L652)
