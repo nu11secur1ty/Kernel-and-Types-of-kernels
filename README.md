@@ -8,3 +8,7 @@
 
 # Kernel Space, User Space Interfaces
 [Read...](https://www.nu11secur1ty.com/2019/01/kernel-space-user-space-interfaces.html)
+
+-----------------------------------------------------------------------------------------------------------------
+# Reference
+
