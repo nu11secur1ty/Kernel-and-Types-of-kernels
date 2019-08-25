@@ -25,5 +25,5 @@ dmesg
 ```
 - 6.  remove the module
 ```bash
-rmmod katil.ko
+rmmod katil
 ```
