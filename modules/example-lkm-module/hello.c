@@ -1,4 +1,5 @@
 /**
+ * Author V.Varbanovski nu11secur1ty
  * hello-world - a module that does nothing more than
  * printing `hello world` using `printk`.
  */
@@ -24,8 +25,8 @@
  * by using a properietary license your kernel will be "tainted".
  */
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Ciro S. Costa");
-MODULE_DESCRIPTION("A hello-world printer");
+MODULE_AUTHOR("V.Varbanovsi. nu11secur1ty");
+MODULE_DESCRIPTION("Katil LKM");
 MODULE_VERSION("0.1");
 
 /** hello_init - initializes the module
@@ -40,7 +41,7 @@ hello_init(void)
          // we can look at `dmesg` and verify that what we log here
          // appears there at the moment that we load the module with
          // `insmod`.
-	printk(KERN_INFO "HELLO-WORLD: Hello world!\n");
+	printk(KERN_INFO "Ko staaa katil?\n");
 	return 0;
 }
 
@@ -48,7 +49,7 @@ static void
 hello_exit(void)
 {
         // similar to `init`, but for the removal time.
-	printk(KERN_INFO "HELLO-WORLD: Bye bye world!\n");
+	printk(KERN_INFO "Ae beee si igraesh!\n");
 }
 
 // registers the `hello_init` method as the method to run at module
