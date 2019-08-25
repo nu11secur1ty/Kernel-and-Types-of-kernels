@@ -26,5 +26,3 @@ Usage:
         6. remove the module
 
                 sudo rmmod hello.ko
-
-https://ops.tips
