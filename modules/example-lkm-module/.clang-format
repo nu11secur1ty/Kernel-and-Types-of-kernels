@@ -1,0 +1,9 @@
+---
+BasedOnStyle: Mozilla
+AllowShortFunctionsOnASingleLine: Empty
+BreakBeforeBraces: Linux
+UseTab: ForIndentation
+IndentWidth: 8
+AlwaysBreakTemplateDeclarations: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
