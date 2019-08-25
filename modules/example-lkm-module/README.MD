@@ -2,7 +2,7 @@
 
 - Usage:
 
-- 1. install the necessary development headers
+- 1. Install the necessary development headers
 ```bash
 apt update -y
 apt install -y libelf-dev linux-headers-`uname -r`
