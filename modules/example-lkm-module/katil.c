@@ -1,7 +1,7 @@
 /**
  * Author V.Varbanovski nu11secur1ty
- * hello-world - a module that does nothing more than
- * printing `hello world` using `printk`.
+ * katil - a module that does nothing more than
+ * printing `katil` using `printk`.
  */
 
 /**
