@@ -5,9 +5,7 @@ Usage:
         1. install the necessary development headers
 
                 sudo apt update -y
-                sudo apt install -y \
-                        libelf-dev \
-                        linux-headers-`uname -r`
+                sudo apt install -y libelf-dev linux-headers-`uname -r`
 
         2. build the kernel module
 
