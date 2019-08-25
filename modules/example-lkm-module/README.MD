@@ -3,17 +3,17 @@ hello-world-lkm - a "hello-world" loadable kernel module
 Usage:
 
         1. install the necessary development headers
-
+```bash
                 sudo apt update -y
                 sudo apt install -y libelf-dev linux-headers-`uname -r`
-
+```
         2. build the kernel module
 
-                make kbuild
+                make
 
         3. load the module
 
-                sudo insmod ./hello.ko
+                insmod hello.ko
 
         4. check that the module has been inserted
 
@@ -25,4 +25,4 @@ Usage:
 
         6. remove the module
 
-                sudo rmmod hello.ko
+                rmmod hello.ko
