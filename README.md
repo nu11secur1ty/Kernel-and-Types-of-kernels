@@ -1837,5 +1837,6 @@ EXPORT_SYMBOL(abort);
 ```
 -----------------------------------------------------------------------------------------
 
-# https://github.com/torvalds/linux.git
+https://github.com/torvalds/linux.git
+
 # VV
