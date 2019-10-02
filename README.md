@@ -1836,8 +1836,10 @@ __weak void abort(void)
 EXPORT_SYMBOL(abort);
 ```
 -----------------------------------------------------------------------------------------
-
+# Creator
 https://github.com/torvalds/linux.git
+
+# Kernel doc 
 https://www.kernel.org/doc/html/v4.15/index.html#
 
 # VV
