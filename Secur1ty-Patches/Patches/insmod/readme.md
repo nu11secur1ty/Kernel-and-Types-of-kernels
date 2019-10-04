@@ -1,4 +1,4 @@
-# Installing the patch, which you want.
+# Installing the patch.
 - Run 
 ```bash
 ./nu11secur1ty
