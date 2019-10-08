@@ -112,3 +112,51 @@ Many Linux kernel developers may not be clear about the relationship between vml
 ![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/4.png)
 
 
+The source root vmlinux is stripped, compressed, put into `piggy.S`, then linked with other peer objects into `arch/x86/boot/compressed/vmlinux`. Meanwhile, a file called setup.bin is produced under `arch/x86/boot`. There may be an optional third file that has relocation info, depending on the configuration of `CONFIG_X86_NEED_RELOCS`.
+
+A host program called build, provided by the kernel, builds these two (or three) parts into the final bzImage file.
+
+- Dependency tracking
+
+Kbuild tracks three kinds of dependencies:
+
+1. All prerequisite files (both *.c and *.h)
+2. CONFIG_ options used in all prerequisite files
+3. Command-line dependencies used to compile the target
+
+The first one is easy to understand, but what about the second and third? Kernel developers often see code pieces like this:
+
+```bash
+#ifdef CONFIG_SMP __boot_cpu_id = cpu; #endif
+```
+
+When `CONFIG_SMP` changes, this piece of code should be recompiled. The command line for compiling a source file also matters, because different command lines may result in different object files.
+
+When a `.c` file uses a header file via a `#include` directive, you need write a rule like this:
+
+```c
+main.o: defs.h recipe...
+```
+When managing a large project, you need a lot of these kinds of rules; writing them all would be tedious and boring. Fortunately, most modern C compilers can write these rules for you by looking at the #include lines in the source file. For the GNU Compiler Collection (GCC), it is just a matter of adding a command-line parameter: -MD depfile
+
+
+```
+# In scripts/Makefile.lib c_flags = -Wp,-MD,$(depfile) $(NOSTDINC_FLAGS) $(LINUXINCLUDE) \ -include $(srctree)/include/linux/compiler_types.h \ $(__c_flags) $(modkern_cflags) \ $(basename_flags) $(modname_flags)
+```
+This would generate a `.d` file with content like:
+
+```
+init_task.o: init/init_task.c include/linux/kconfig.h \ include/generated/autoconf.h include/linux/init_task.h \ include/linux/rcupdate.h include/linux/types.h \ ...
+```
+
+Then the host program `fixdep` takes care of the other two dependencies by taking the `depfile` and command line as input, then outputting a `.<target>.cmd` file in makefile syntax, which records the command line and all the prerequisites (including the configuration) for a target. It looks like this:
+
+
+```
+# The command line used to compile the target cmd_init/init_task.o := gcc -Wp,-MD,init/.init_task.o.d -nostdinc ... ... # The dependency files deps_init/init_task.o := \ $(wildcard include/config/posix/timers.h) \ $(wildcard include/config/arch/task/struct/on/stack.h) \ $(wildcard include/config/thread/info/in/task.h) \ ... include/uapi/linux/types.h \ arch/x86/include/uapi/asm/types.h \ include/uapi/asm-generic/types.h \ ...
+```
+
+
+A `.<target>.cmd` file will be included during recursive make, providing all the dependency info and helping to decide whether to rebuild a target or not.
+
+The secret behind this is that `fixdep` will parse the `depfil`e (`.d`file), then parse all the dependency files inside, search the text for all the `CONFIG_` strings, convert them to the corresponding empty header file, and add them to the target's prerequisites. Every time the configuration changes, the corresponding empty header file will be updated, too, so kbuild can detect that change and rebuild the target that depends on it. Because the command line is also recorded, it is easy to compare the last and current compiling parameters.
