@@ -55,5 +55,56 @@ Here is an illustration of what syncconfig does:
 
 ![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/2.png)
 
+syncconfig takes .config as input and outputs many other files, which fall into three categories:
+
+- auto.conf & tristate.conf are used for makefile text processing. For example, you may see statements like this in a component's makefile: 
+
+```bash
+obj-$(CONFIG_GENERIC_CALIBRATE_DELAY) += calibrate.o
+```
+- autoconf.h is used in C-language source files.
+- Empty header files under include/config/ are used for configuration-dependency tracking during kbuild, which is explained below.
+
+After configuration, we will know which files and code pieces are not compiled.
+
+--------------------------------------------------------------------------------
+
+# kbuild
+
+Component-wise building, called recursive make, is a common way for GNU make to manage a large project. Kbuild is a good example of recursive make. By dividing source files into different modules/components, each component is managed by its own makefile. When you start building, a top makefile invokes each component's makefile in the proper order, builds the components, and collects them into the final executive.
+
+Kbuild refers to different kinds of makefiles:
+
+- `Makefile` is the top makefile located in source root.
+- `.config` is the kernel configuration file.
+- `arch/$(ARCH)/Makefile` is the arch makefile, which is the supplement to the top makefile.
+- `scripts/Makefile.*` describes common rules for all kbuild makefiles.
+- Finally, there are about 500 `kbuild makefiles`.
+
+The top makefile includes the arch makefile, reads the .config file, descends into subdirectories, invokes `make` on each component's makefile with the help of routines defined in `scripts/Makefile.*`, builds up each intermediate object, and links all the intermediate objects into vmlinux. Kernel document Documentation/kbuild/makefiles.txt describes all aspects of these makefiles.
+
+As an example, let's look at how vmlinux is produced on x86-64:
+
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/3.png)
 
 
+All the `.o` files that go into vmlinux first go into their own built-in.a, which is indicated via variables `KBUILD_VMLINUX_INIT`, `KBUILD_VMLINUX_MAIN`, `KBUILD_VMLINUX_LIBS`, then are collected into the vmlinux file.
+
+Take a look at how recursive make is implemented in the Linux kernel, with the help of simplified makefile code:
+
+
+```
+# In top Makefile vmlinux: scripts/link-vmlinux.sh $(vmlinux-deps) +$(call if_changed,link-vmlinux) # Variable assignments vmlinux-deps := $(KBUILD_LDS) $(KBUILD_VMLINUX_INIT) $(KBUILD_VMLINUX_MAIN) $(KBUILD_VMLINUX_LIBS) export KBUILD_VMLINUX_INIT := $(head-y) $(init-y) export KBUILD_VMLINUX_MAIN := $(core-y) $(libs-y2) $(drivers-y) $(net-y) $(virt-y) export KBUILD_VMLINUX_LIBS := $(libs-y1) export KBUILD_LDS := arch/$(SRCARCH)/kernel/vmlinux.lds init-y := init/ drivers-y := drivers/ sound/ firmware/ net-y := net/ libs-y := lib/ core-y := usr/ virt-y := virt/ # Transform to corresponding built-in.a init-y := $(patsubst %/, %/built-in.a, $(init-y)) core-y := $(patsubst %/, %/built-in.a, $(core-y)) drivers-y := $(patsubst %/, %/built-in.a, $(drivers-y)) net-y := $(patsubst %/, %/built-in.a, $(net-y)) libs-y1 := $(patsubst %/, %/lib.a, $(libs-y)) libs-y2 := $(patsubst %/, %/built-in.a, $(filter-out %.a, $(libs-y))) virt-y := $(patsubst %/, %/built-in.a, $(virt-y)) # Setup the dependency. vmlinux-deps are all intermediate objects, vmlinux-dirs # are phony targets, so every time comes to this rule, the recipe of vmlinux-dirs # will be executed. Refer "4.6 Phony Targets" of `info make` $(sort $(vmlinux-deps)): $(vmlinux-dirs) ; # Variable vmlinux-dirs is the directory part of each built-in.a vmlinux-dirs := $(patsubst %/,%,$(filter %/, $(init-y) $(init-m) \ $(core-y) $(core-m) $(drivers-y) $(drivers-m) \ $(net-y) $(net-m) $(libs-y) $(libs-m) $(virt-y))) # The entry of recursive make $(vmlinux-dirs): $(Q)$(MAKE) $(build)=$@ need-builtin=1
+```
+
+The recursive make recipe is expanded, for example:
+
+```bash
+make -f scripts/Makefile.build obj=init need-builtin=1
+```
+
+
+This means make will go into scripts/Makefile.build to continue the work of building each built-in.a. With the help of scripts/link-vmlinux.sh, the vmlinux file is finally under source root.
+Understanding vmlinux vs. bzImage
+
+Many Linux kernel developers may not be clear about the relationship between vmlinux and bzImage. For example, here is their relationship in x86-64:
