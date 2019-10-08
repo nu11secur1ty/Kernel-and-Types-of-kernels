@@ -108,3 +108,7 @@ This means make will go into scripts/Makefile.build to continue the work of buil
 Understanding vmlinux vs. bzImage
 
 Many Linux kernel developers may not be clear about the relationship between vmlinux and bzImage. For example, here is their relationship in x86-64:
+
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/4.png)
+
+
