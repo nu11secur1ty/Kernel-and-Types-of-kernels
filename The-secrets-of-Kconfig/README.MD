@@ -28,10 +28,12 @@ kvmconfig - Enable additional options for KVM guest kernel support
 xenconfig - Enable additional options for xen dom0 and guest kernel support
 tinyconfig  - Configure the tiniest possible kernel
 ```
-menuconfig is the most popular of these targets. The targets are processed by different host programs, which are provided by the kernel and built during kernel building. Some targets have a GUI (for the user's convenience) while most don't. Kconfig-related tools and source code reside mainly under scripts/kconfig/ in the kernel source. As we can see from scripts/kconfig/Makefile, there are several host programs, including conf, mconf, and nconf. Except for conf, each of them is responsible for one of the GUI-based config targets, so, conf deals with most of them.
+The menuconfig is the most popular of these targets. The targets are processed by different host programs, which are provided by the kernel and built during kernel building. Some targets have a GUI (for the user's convenience) while most don't. Kconfig-related tools and source code reside mainly under scripts/kconfig/ in the kernel source. As we can see from scripts/kconfig/Makefile, there are several host programs, including conf, mconf, and nconf. Except for conf, each of them is responsible for one of the GUI-based config targets, so, conf deals with most of them.
 
 Logically, Kconfig's infrastructure has two parts: one implements a new language to define the configuration items (see the Kconfig files under the kernel source), and the other parses the Kconfig language and deals with configuration actions.
 
 Most of the config targets have roughly the same internal process (shown below):
+
+
 
 
