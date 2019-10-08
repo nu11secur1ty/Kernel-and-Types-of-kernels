@@ -33,7 +33,27 @@ The menuconfig is the most popular of these targets. The targets are processed b
 Logically, Kconfig's infrastructure has two parts: one implements a new language to define the configuration items (see the Kconfig files under the kernel source), and the other parses the Kconfig language and deals with configuration actions.
 
 Most of the config targets have roughly the same internal process (shown below):
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/1.png)
 
+
+- Note that all configuration items have a default value.
+
+The first step reads the Kconfig file under source root to construct an initial configuration database; then it updates the initial database by reading an existing configuration file according to this priority:
+```
+    .config
+    /lib/modules/$(shell,uname -r)/.config
+    /etc/kernel-config
+    /boot/config-$(shell,uname -r)
+    ARCH_DEFCONFIG
+    arch/$(ARCH)/defconfig
+```
+If you are doing GUI-based configuration via menuconfig or command-line-based configuration via oldconfig, the database is updated according to your customization. Finally, the configuration database is dumped into the .config file.
+
+But the .config file is not the final fodder for kernel building; this is why the syncconfig target exists. syncconfig used to be a config target called silentoldconfig, but it doesn't do what the old name says, so it was renamed. Also, because it is for internal use (not for users), it was dropped from the list.
+
+Here is an illustration of what syncconfig does:
+
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/The-secrets-of-Kconfig/wall/2.png)
 
 
 
