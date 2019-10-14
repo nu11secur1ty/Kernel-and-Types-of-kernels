@@ -1842,4 +1842,7 @@ https://github.com/torvalds/linux.git
 - Kernel doc 
 https://www.kernel.org/doc/html/v4.15/index.html#
 
+- How to patching your Kernel
+https://www.kernel.org/doc/html/v4.10/process/applying-patches.html
+
 # VV
