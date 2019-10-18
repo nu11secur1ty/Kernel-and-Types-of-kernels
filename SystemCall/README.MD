@@ -58,28 +58,28 @@ i##n:                                                           \
         .long   ret
 ```
 
-`li` stands for "load immediate", which means that a constant value known at compile time is stored in a register. First, `trap` is loaded into the register `r10`. On the next line, that value is stored on the address given by TRAP(r11). TRAP(r11) and the next two lines do some hardware specific bit manipulation. After that we call the tfer function (i.e. the transfer_to_handler function), which does yet more housekeeping, and then transfers control to hdlr (i.e. DoSyscall). Note that transfer_to_handler loads the address of the handler from the link register, which is why you see .long DoSyscall instead of bl DoSyscall.
+`li` stands for "load immediate", which means that a constant value known at compile time is stored in a register. First, `trap` is loaded into the register `r10`. On the next line, that value is stored on the address given by `TRAP(r11)`. `TRAP(r11)` and the next two lines do some hardware specific bit manipulation. After that we call the `tfer` function (i.e. the `transfer_to_handler` function), which does yet more housekeeping, and then transfers control to `hdlr` (i.e. `DoSyscall`). Note that `transfer_to_handler` loads the address of the handler from the link register, which is why you see `.long DoSyscall` instead of `bl DoSyscall`.
 
-Now, let's look at DoSyscall. It's in the file:
+Now, let's look at `DoSyscall`. It's in the file:
 
-arch/ppc/kernel/entry.S
+`arch/ppc/kernel/entry.S`
 
-Eventually, this function loads up the address of the syscall table and indexes into it using the system call number. The syscall table is what the OS uses to translate from a system call number to a particular system call. The system call table is named sys_call_table and defined in:
+Eventually, this function loads up the address of the syscall table and indexes into it using the system call number. The syscall table is what the OS uses to translate from a system call number to a particular system call. The system call table is named `sys_call_table` and defined in:
 
-arch/ppc/kernel/misc.S
+`arch/ppc/kernel/misc.S`
 
-The syscall table contains the addresses of the functions that implement each system call. For example, the read() system call function is named sys_read. The read() system call number is 3, so the address of sys_read() is in the 4th entry of the system call table (since we start numbering the system calls with 0). We read the data from the address sys_call_table + (3 * word_size) and we get the address of sys_read().
+The syscall table contains the addresses of the functions that implement each system call. For example, the read() system call function is named `sys_read`. The `read()` system call number is 3, so the address of sys_read() is in the 4th entry of the system call table (since we start numbering the system calls with 0). We read the data from the address sys_call_table + (3 * word_size) and we get the address of `sys_read()`.
 
-After DoSyscall has looked up the correct system call address, it transfers control to that system call. Let's look at where sys_read() is defined, in the file:
-fs/read_write.c
+After `DoSyscall` has looked up the correct system call address, it transfers control to that system call. Let's look at where `sys_read()` is defined, in the file:
+`fs/read_write.c`
 
-This function finds the file struct associated with the fd number you passed to the read() function. That structure contains a pointer to the function that should be used to read data from that particular kind of file. After doing some checks, it calls that file-specific read function in order to actually read the data from the file, and then returns. This file-specific function is defined somewhere else - the socket code, filesystem code, or device driver code, for example. This is one of the points at which a specific kernel subsystem finally interfaces with the rest of the kernel. After our read function finishes, we return from the sys_read(), back to DoSyscall(), which switches control to ret_from_except, which is in defined in:
+This function finds the file struct associated with the fd number you passed to the `read()` function. That structure contains a pointer to the function that should be used to read data from that particular kind of file. After doing some checks, it calls that file-specific read function in order to actually read the data from the file, and then returns. This file-specific function is defined somewhere else - the socket code, filesystem code, or device driver code, for example. This is one of the points at which a specific kernel subsystem finally interfaces with the rest of the kernel. After our read function finishes, we return from the `sys_read()`, back to `DoSyscall()`, which switches control to `ret_from_except`, which is in defined in:
 
-arch/ppc/kernel/entry.S
+`arch/ppc/kernel/entry.S`
 
-This checks for tasks that might need to be done before switching back to user mode. If nothing else needs to be done, we fall through to the restore function, which restores the user process's state and returns control back to the user program. There! Your read() call is done! If you're lucky, you even got your data back.
+This checks for tasks that might need to be done before switching back to user mode. If nothing else needs to be done, we fall through to the `restore` function, which restores the user process's state and returns control back to the user program. There! Your `read()` call is done! If you're lucky, you even got your data back.
 
-You can explore syscalls further by putting printks at strategic places. Be sure to limit the amount of output from these printks. For example, if you add a printk to sys_read() syscall, you should do something like this:
+You can explore syscalls further by putting printks at strategic places. Be sure to limit the amount of output from these printks. For example, if you add a `printk` to `sys_read()` syscall, you should do something like this:
 
 ```bash
   static int mycount = 0;
