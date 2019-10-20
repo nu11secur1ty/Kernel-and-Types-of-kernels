@@ -53,7 +53,7 @@ What this code does is save some state and call another function called `DoSysca
         li      r10,MSR_KERNEL;                                 \
         copyee(r10, r9);                                        \
         bl      tfer;                                           \
-i##n:                                                           \
+##n:                                                            \
         .long   hdlr;                                           \
         .long   ret
 ```
