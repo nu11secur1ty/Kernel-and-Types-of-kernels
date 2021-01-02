@@ -1848,4 +1848,8 @@ https://www.kernel.org/doc/html/v4.10/process/applying-patches.html
 - Source:
 https://www.kernel.org/
 
+- - - Online:
+
+https://elixir.bootlin.com/linux/latest/source
+
 # VV
