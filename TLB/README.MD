@@ -15,3 +15,4 @@ To find the frame number
 To go to the address specified by frame number 
  
 To overcome this problem a high-speed cache is set up for page table entries called a Translation Lookaside Buffer (TLB). Translation Lookaside Buffer (TLB) is nothing but a special cache used to keep track of recently used transactions. TLB contains page table entries that have been most recently used. Given a virtual address, the processor examines the TLB if a page table entry is present (TLB hit), the frame number is retrieved and the real address is formed. If a page table entry is not found in the TLB (TLB miss), the page number is used as index while processing page table. TLB first checks if the page is already in main memory, if not in main memory a page fault is issued then the TLB is updated to include the new page entry. 
+[](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/TLB/screen/tlb1.jpg)
