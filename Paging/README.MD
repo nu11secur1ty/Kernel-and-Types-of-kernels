@@ -52,4 +52,7 @@ The hardware implementation of page table can be done by using dedicated registe
 
 ![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Paging/screen/paging-2.jpg)
 
+Main memory access time = m
+If page table are kept in main memory,
+Effective access time = m(for page table) + m(for particular page in page table)
 
