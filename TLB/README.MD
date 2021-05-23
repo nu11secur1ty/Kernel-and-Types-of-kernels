@@ -20,9 +20,9 @@ To overcome this problem a high-speed cache is set up for page table entries cal
 ## Steps in TLB hit: 
  
 
-1 - CPU generates virtual (logical) address. 
+1  - CPU generates virtual (logical) address. 
  
-2 - It is checked in TLB (present). 
+2  - It is checked in TLB (present). 
  
 3 - Corresponding frame number is retrieved, which now tells where in the main memory page lies. 
  
