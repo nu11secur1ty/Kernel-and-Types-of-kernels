@@ -56,3 +56,5 @@ Main memory access time = m
 If page table are kept in main memory,
 Effective access time = m(for page table) + m(for particular page in page table)
 
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Paging/screen/paging-3.jpg)
+
