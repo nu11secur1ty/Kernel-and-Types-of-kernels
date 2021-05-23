@@ -31,3 +31,5 @@ Page Size = Frame Size
 - Physical Address = 12 bits, then Physical Address Space = 4 K words
 - Logical Address = 13 bits, then Logical Address Space = 8 K words
 - Page size = frame size = 1 K words (assumption)
+
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Paging/screen/paging.jpg)
