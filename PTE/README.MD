@@ -10,8 +10,9 @@ Page table entry has the following information –
 
 ## Frame Number – 
 It gives the frame number in which the current page you are looking for is present. The number of bits required depends on the number of frames.Frame bit is also known as address translation bit.
+```
 Number of bits for frame = Size of physical memory/frame size
-
+```
 ## Present/Absent bit – 
 Present or absent bit says whether a particular page you are looking for is present or absent. In case if it is not present, that is called Page Fault. It is set to 0 if the corresponding page is not in memory. Used to control page fault by the operating system to support virtual memory. Sometimes this bit is also known as valid/invalid bits.
 
