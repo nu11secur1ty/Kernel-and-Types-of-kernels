@@ -25,8 +25,9 @@ The mapping from virtual to physical address is done by the memory management un
 The Physical Address Space is conceptually divided into a number of fixed-size blocks, called frames.
 The Logical address Space is also splitted into fixed-size blocks, called pages.
 Page Size = Frame Size
-Let us consider an example:
 
-Physical Address = 12 bits, then Physical Address Space = 4 K words
-Logical Address = 13 bits, then Logical Address Space = 8 K words
-Page size = frame size = 1 K words (assumption)
+## Let us consider an example:
+
+- Physical Address = 12 bits, then Physical Address Space = 4 K words
+- Logical Address = 13 bits, then Logical Address Space = 8 K words
+- Page size = frame size = 1 K words (assumption)
