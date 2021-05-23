@@ -10,8 +10,11 @@ Physical Address Space (represented in words or bytes): The set of all physical 
 ## Example:
 
 . If Logical Address = 31 bit, then Logical Address Space = 231 words = 2 G words (1 G = 230)
+
 . If Logical Address Space = 128 M words = 27 * 220 words, then Logical Address = log2 227 = 27 bits
+
 . If Physical Address = 22 bit, then Physical Address Space = 222 words = 4 M words (1 M = 220)
+
 . If Physical Address Space = 16 M words = 24 * 220 words, then Physical Address = log2 224 = 24 bits
 
 The mapping from virtual to physical address is done by the memory management unit (MMU) which is a hardware device and this mapping is known as paging technique.
