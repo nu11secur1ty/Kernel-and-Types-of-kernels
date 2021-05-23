@@ -6,3 +6,4 @@ Page table has page table entries where each page table entry stores a frame num
 
 Page table entry has the following information –
 
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/PTE/screen/Capture-24.png)
