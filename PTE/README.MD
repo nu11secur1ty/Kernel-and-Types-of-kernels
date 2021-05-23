@@ -35,10 +35,8 @@ Practicing the following questions will help you test your knowledge. All questi
 
 
 1 . GATE CS 2001, Question 46
+
 2 . GATE CS 2004, Question 66
+
 3 . GATE CS 2015 (Set 1), Question 65
 
-
-This article is contributed by Samit Mandal. If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
-
-Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.
