@@ -20,24 +20,24 @@ To overcome this problem a high-speed cache is set up for page table entries cal
 ## Steps in TLB hit: 
  
 
-1  - CPU generates virtual (logical) address. 
+1 . CPU generates virtual (logical) address. 
  
-2  - It is checked in TLB (present). 
+2 . It is checked in TLB (present). 
  
-3 - Corresponding frame number is retrieved, which now tells where in the main memory page lies. 
+3 . Corresponding frame number is retrieved, which now tells where in the main memory page lies. 
  
 ## Steps in TLB miss: 
  
 
-1 - CPU generates virtual (logical) address. 
+1 . CPU generates virtual (logical) address. 
  
-2 - It is checked in TLB (not present). 
+2 . It is checked in TLB (not present). 
  
-3 - Now the page number is matched to page table residing in main memory (assuming page table contains all PTE). 
+3 . Now the page number is matched to page table residing in main memory (assuming page table contains all PTE). 
  
-4 - Corresponding frame number is retrieved, which now tells where in the main memory page lies. 
+4 . Corresponding frame number is retrieved, which now tells where in the main memory page lies. 
  
-5 - The TLB is updated with new PTE (if space is not there, one of the replacement technique comes into picture i.e either FIFO, LRU or MFU etc). 
+5 . The TLB is updated with new PTE (if space is not there, one of the replacement technique comes into picture i.e either FIFO, LRU or MFU etc). 
 
 ```
 Effective memory access time(EMAT) : TLB is used to reduce effective memory access time as it is a high speed associative cache. 
