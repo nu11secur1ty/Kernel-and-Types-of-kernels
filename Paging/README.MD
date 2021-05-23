@@ -50,4 +50,6 @@ The hardware implementation of page table can be done by using dedicated registe
 - Each entry in TLB consists of two parts: a tag and a value.
 - When this memory is used, then an item is compared with all tags simultaneously.If the item is found, then corresponding value is returned.
 
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Paging/screen/paging-2.jpg)
+
 
