@@ -42,3 +42,11 @@ There are a few types of these shells which are categorized as follows:
 
 ## Drawbacks of Linux
 
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Architecture/architecture-of-linux3.png)
+
+- Hardware drivers: Most of the users of Linux face an issue while using Linux. Various companies of hardware prefer to build drivers for Mac or Windows due to they contain several users than Linux. Linux has small drivers for peripheral hardware than windows.
+- Software alternative: Let's take the Photoshop example which is a famous tool for graphic editing. Photoshop exists for Windows; however, it is not available in Linux. Also, there are some other tools for photo editing but the Photoshop tool is more powerful as compare to others. Another example is MS office which is not present for Linux users.
+- Learning curve: Linux isn't a very user-friendly operating system. Hence, it might be confusing for many beginners. Getting begun with Windows is efficient and easy for many beginners; however, understanding Linux working is complex.
+We have to understand the command line interface and finding for newer software is a little bit complex as well. When we face any issue in the OS, the searching solution is very problematic. Also, there are various experts for Mac and Windows as compare to Linux.
+- Games: Several games are developed for Windows but unfortunately not for Linux. Because the platform of Windows is used widely. So, the developers of the games are more interested in windows.
+
