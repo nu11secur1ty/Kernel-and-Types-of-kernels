@@ -28,3 +28,4 @@ There are a few types of these shells which are categorized as follows:
 - - - POSIX shell
 
 ## Linux Operating System Features
+![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Architecture/architecture-of-linux2.png)
