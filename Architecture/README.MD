@@ -50,3 +50,50 @@ There are a few types of these shells which are categorized as follows:
 We have to understand the command line interface and finding for newer software is a little bit complex as well. When we face any issue in the OS, the searching solution is very problematic. Also, there are various experts for Mac and Windows as compare to Linux.
 - Games: Several games are developed for Windows but unfortunately not for Linux. Because the platform of Windows is used widely. So, the developers of the games are more interested in windows.
 
+## Linux Operating System Applications
+
+Linux is a billion-dollar corporation nowadays. Thousands of governments and companies are using Linux operating system across the world because of lower money, time, licensing fee, and affordability. Linux can be used within several types of electronic devices. These electronic devices are easily available for users worldwide. A few of the famous Linux-based electronic devices are listed below:
+
+- Yamaha Motive Keyboard
+- Volvo In-Car Navigation System
+- TiVo Digital Video Recorder
+- Sony Reader
+- Sony Bravia Television
+- One Laptop Per child XO2
+- Motorola MotoRokr EM35 phone
+- Lenovo IdeaPad S9
+- HP Mini 1000
+- Google Android Dev Phone 1
+- Garmin Nuvi 860, 880, and 5000
+- Dell Inspiron Mini 9 and 12
+
+## Linux Distribution
+
+It is an OS that is composed of a software-based collection on Linux kernel or we can say the distribution includes the Linux Kernel. It is supporting software and libraries. We can obtain Linux-based OS by downloading any Linux distribution. These types of distributions exists for distinct types of devices such as personal computers, embedded devices, etc. Around more than 600 Linux distributions are existed and a few of the famous Linux distributions are listed as follows:
+
+- - - Deepin
+- - - OpenSUSE
+- - - Fedora
+- - - Solus
+- - - Debian
+- - - Ubuntu
+- - - Elementary
+- - - Linux Mint
+- - - Manjaro
+- - - MX Linux
+
+## Are Ubuntu and Linux Differ?
+
+`YES`
+The primary difference between window and Linux is that window is open source and free OS and its Linux distribution based on Debian, Whereas Linux is a large collection of open-source OSes that are working based on Linux kernel.
+
+Besides, Ubuntu is a distribution of Linux and Linux is a core system. Ubuntu is integrated by Canonical Ltd. and published in 2004 and Linux is integrated by Linus Torvalds and published in 1991.
+
+
+## User mode vs Kernel mode:
+
+The code of kernel component runs in a unique privilege mood known as kernel mode along with complete access to every computer resource. This code illustrates an individual process, runs in an individual address space, and don't need the context switch. Hence, it is very fast and efficient.
+Kernel executes all the processes and facilitates various services of a system to the processes. Also, it facilitates secured access to processes to hardware.
+The support code that is not needed to execute in kernel mode is inside the system library. The user programs and other types of system programs are implemented in the user mode.
+It includes no access to kernel mode and system hardware. User utilities/programs use the system libraries for accessing kernel functions to obtain low-level tasks of the system.
+
