@@ -39,3 +39,5 @@ There are a few types of these shells which are categorized as follows:
 - Security: Linux OS facilitates user security systems with the help of various features of authentication such as controlled access to specific files, password protection, or data encryption.
 - Shell: Linux operating system facilitates a unique interpreter program. This type of program can be applied for executing commands of the operating system. It can be applied to perform various types of tasks such as call application programs and others.
 
+## Drawbacks of Linux
+
