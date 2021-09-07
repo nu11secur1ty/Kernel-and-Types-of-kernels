@@ -29,6 +29,7 @@ There are a few types of these shells which are categorized as follows:
 
 ## Linux Operating System Features
 `Some of the primary features of Linux OS are as follows:`
+
 ![](https://github.com/nu11secur1ty/Kernel-and-Types-of-kernels/blob/master/Architecture/architecture-of-linux2.png)
 
 - Portable: Linux OS can perform different types of hardware and the kernel of Linux supports the installation of any type of hardware environment.
